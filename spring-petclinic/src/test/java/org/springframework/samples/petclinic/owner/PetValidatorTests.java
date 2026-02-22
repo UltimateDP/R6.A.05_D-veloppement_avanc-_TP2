@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledInNativeImage;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.samples.petclinic.application.PetValidator;
+import org.springframework.samples.petclinic.domain.PetValidator;
 import org.springframework.samples.petclinic.domain.Pet;
 import org.springframework.samples.petclinic.domain.PetType;
 import org.springframework.validation.Errors;

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'orders')}">
+  <head>
+    <title>New Order</title>
+  </head>
+  <body>
+  <h2>Create an Order</h2>
+
+  <form th:action="@{/orders}" method="post">
+    <label>Pet ID:</label>
+    <input type="number" name="petId" required />
+
+    <br/><br/>
+
+    <label>DateTime (format: 2026-02-22T16:00:00):</label>
+    <input type="text" name="dateTime" required />
+
+    <br/><br/>
+
+    <button type="submit">Create</button>
+  </form>
+
+  <p><a th:href="@{/orders}">Back</a></p>
+  </body>
+</html>
