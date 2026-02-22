@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.samples.petclinic.owner;
+package org.springframework.samples.petclinic.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -33,7 +33,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.samples.petclinic.adapter.out.PetTypeRepository;
-import org.springframework.samples.petclinic.application.PetTypeFormatter;
 import org.springframework.samples.petclinic.domain.PetType;
 
 /**

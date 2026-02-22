@@ -26,6 +26,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.samples.petclinic.adapter.in.OwnerController;
 import org.springframework.samples.petclinic.adapter.out.OwnerRepository;
+import org.springframework.samples.petclinic.application.AppointmentService;
 import org.springframework.samples.petclinic.domain.Owner;
 import org.springframework.samples.petclinic.domain.Pet;
 import org.springframework.samples.petclinic.domain.PetType;
@@ -74,6 +75,9 @@ class OwnerControllerTests {
 	@MockitoBean
 	private OwnerRepository owners;
 
+	@MockitoBean
+	private AppointmentService appointments;
+
 	private Owner george() {
 		Owner george = new Owner();
 		george.setId(TEST_OWNER_ID);
@@ -101,6 +105,7 @@ class OwnerControllerTests {
 			.willReturn(new PageImpl<>(List.of(george)));
 
 		given(this.owners.findById(TEST_OWNER_ID)).willReturn(Optional.of(george));
+		given(this.appointments.findByOwnerId(TEST_OWNER_ID)).willReturn(List.of());
 		Visit visit = new Visit();
 		visit.setDate(LocalDate.now());
 		george.getPet("Max").getVisits().add(visit);

@@ -37,6 +37,41 @@
     Owner</a>
   <a th:href="@{__${owner.id}__/pets/new}" class="btn btn-primary" th:text="#{addNewPet}">Add
     New Pet</a>
+  <a th:href="@{__${owner.id}__/appointments/new}" class="btn btn-primary">Add Appointment</a>
+
+  <br />
+  <br />
+  <br />
+  <h2>Appointments</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Update Status</th>
+      </tr>
+    </thead>
+    <tr th:each="appointment : ${appointments}">
+      <td th:text="${#temporals.format(appointment.date, 'yyyy-MM-dd')}"></td>
+      <td th:text="${appointment.reason}"></td>
+      <td th:text="${appointment.status}"></td>
+      <td>
+        <form th:action="@{__${owner.id}__/appointments/__${appointment.id}__/status}" method="post">
+          <select name="status" class="form-control">
+            <option th:each="status : ${T(org.springframework.samples.petclinic.domain.AppointmentStatus).values()}"
+              th:value="${status}" th:text="${status}" th:selected="${status == appointment.status}">
+            </option>
+          </select>
+          <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+      </td>
+    </tr>
+    <tr th:if="${appointments == null || appointments.isEmpty()}">
+      <td colspan="4">No appointments yet.</td>
+    </tr>
+  </table>
 
   <br />
   <br />

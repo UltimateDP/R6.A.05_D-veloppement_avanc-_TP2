@@ -1,4 +1,4 @@
-package org.springframework.samples.petclinic.system;
+package org.springframework.samples.petclinic.application;
 
 import org.junit.jupiter.api.Test;
 
