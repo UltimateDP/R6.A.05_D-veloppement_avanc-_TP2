@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'orders')}">
   <head>
-    <title>Orders</title>
+    <title th:text="#{orders.title}">Orders</title>
   </head>
   <body>
-  <h2>Orders</h2>
+  <h2 th:text="#{orders.title}">Orders</h2>
 
   <p th:if="${error}" th:text="${error}" style="color:red;"></p>
 
-  <p><a th:href="@{/orders/new}">Create a new Order</a></p>
+  <p><a th:href="@{/orders/new}" th:text="#{orders.new.link}">Create a new Order</a></p>
 
   <table cellpadding="6">
     <thead>
     <tr>
-      <th>ID</th>
-      <th>Pet ID</th>
-      <th>DateTime</th>
-      <th>Status</th>
-      <th>Actions</th>
+      <th th:text="#{orders.id}">ID</th>
+      <th th:text="#{orders.petId}">Pet ID</th>
+      <th th:text="#{orders.datetime}">DateTime</th>
+      <th th:text="#{orders.status}">Status</th>
+      <th th:text="#{orders.actions}">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -29,22 +29,21 @@
       <td>
         <form th:action="@{/orders/{id}/status(id=${o.id})}" method="post" style="display:inline;">
           <input type="hidden" name="status" value="CONFIRMED"/>
-          <button type="submit">Confirm</button>
+          <button type="submit" th:text="#{orders.confirm}">Confirm</button>
         </form>
 
         <form th:action="@{/orders/{id}/status(id=${o.id})}" method="post" style="display:inline;">
           <input type="hidden" name="status" value="DONE"/>
-          <button type="submit">Done</button>
+          <button type="submit" th:text="#{orders.done}">Done</button>
         </form>
 
         <form th:action="@{/orders/{id}/status(id=${o.id})}" method="post" style="display:inline;">
           <input type="hidden" name="status" value="CANCELLED"/>
-          <button type="submit">Cancel</button>
+          <button type="submit" th:text="#{orders.cancel}">Cancel</button>
         </form>
       </td>
     </tr>
     </tbody>
   </table>
-
   </body>
 </html>

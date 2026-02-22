@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'orders')}">
   <head>
-    <title>New Order</title>
+    <title th:text="#{orders.new.title}">New Order</title>
   </head>
   <body>
-  <h2>Create an Order</h2>
+  <h2 th:text="#{orders.new.heading}">Create an Order</h2>
 
   <form th:action="@{/orders}" method="post">
-    <label>Pet ID:</label>
+    <label th:text="#{orders.petId}">Pet ID:</label>
     <input type="number" name="petId" required />
 
     <br/><br/>
 
-    <label>DateTime (format: 2026-02-22T16:00:00):</label>
+    <label th:text="#{orders.datetime}">DateTime:</label>
     <input type="text" name="dateTime" required />
 
     <br/><br/>
 
-    <button type="submit">Create</button>
+    <button type="submit" th:text="#{orders.create}">Create</button>
   </form>
 
-  <p><a th:href="@{/orders}">Back</a></p>
+  <p><a th:href="@{/orders}" th:text="#{orders.back}">Back</a></p>
   </body>
 </html>
