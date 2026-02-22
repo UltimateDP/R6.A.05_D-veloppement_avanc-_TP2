@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.samples.petclinic;
+package org.springframework.samples.petclinic.adapter.out;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
@@ -40,8 +40,8 @@ public class MysqlTestApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(PetClinicApplication.class, "--spring.profiles.active=mysql",
-				"--spring.docker.compose.enabled=false");
+		SpringApplication.run(org.springframework.samples.petclinic.PetClinicApplication.class,
+				"--spring.profiles.active=mysql", "--spring.docker.compose.enabled=false");
 	}
 
 }

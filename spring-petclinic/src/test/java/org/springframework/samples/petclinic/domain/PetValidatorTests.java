@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.samples.petclinic.owner;
+package org.springframework.samples.petclinic.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -22,9 +22,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledInNativeImage;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.samples.petclinic.application.PetValidator;
-import org.springframework.samples.petclinic.domain.Pet;
-import org.springframework.samples.petclinic.domain.PetType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.MapBindingResult;
 

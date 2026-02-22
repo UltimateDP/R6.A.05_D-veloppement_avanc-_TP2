@@ -40,6 +40,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import org.springframework.samples.petclinic.adapter.out.OwnerRepository;
+import org.springframework.samples.petclinic.application.AppointmentService;
 import org.springframework.samples.petclinic.domain.Owner;
 
 /**
@@ -56,8 +57,11 @@ class OwnerController {
 
 	private final OwnerRepository owners;
 
-	public OwnerController(OwnerRepository owners) {
+	private final AppointmentService appointments;
+
+	public OwnerController(OwnerRepository owners, AppointmentService appointments) {
 		this.owners = owners;
+		this.appointments = appointments;
 	}
 
 	@InitBinder
@@ -174,6 +178,7 @@ class OwnerController {
 		Owner owner = optionalOwner.orElseThrow(() -> new IllegalArgumentException(
 				"Owner not found with id: " + ownerId + ". Please ensure the ID is correct "));
 		mav.addObject(owner);
+		mav.addObject("appointments", this.appointments.findByOwnerId(ownerId));
 		return mav;
 	}
 
